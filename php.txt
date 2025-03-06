@@ -1,0 +1,3 @@
+json
+
+C:\Users\Manuel\AppData\Roaming\Code\User\snippets\php.json
