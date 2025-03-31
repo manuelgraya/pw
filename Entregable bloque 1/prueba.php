@@ -1,38 +1,30 @@
 <?php
-require_once './vehiculo.php'; // Asegúrate de incluir el archivo donde están las clases
+// prueba.php
 
-if (file_exists('./vehiculo.php')) {
-    // Crear objetos
-    $vehiculo = new Vehiculo("Rojo", 1000);
-    $coche = new Coche("Azul", 1200, 4, 2);
-    $camion = new Camion("Verde", 5000, 2, 10);
-    $moto = new Dos_ruedas("Negro", 200, 600);
+include 'vehiculo.php';
 
-    // Probar métodos
-    echo "<strong>Vehículo:</strong><br>";
-    $vehiculo->circula();
-    $vehiculo->anadir_persona(80);
-    echo "Nuevo peso del vehículo: {$vehiculo->getPeso()} kg<br><br>";
+$coche = new Coche("Toyota", "Corolla", "Rojo", 4, "Gasolina");
+$camion = new Camion("Volvo", "FH16", "Azul", 2, 20000);
+$moto = new Dos_ruedas("Honda", "CBR", "Negro", 1000);
 
-    echo "<strong>Coche:</strong><br>";
-    $coche->circula();
-    $coche->anadir_cadenas_nieve(2);
-    $coche->quitar_cadenas_nieve(1);
-    echo "Número de cadenas de nieve: {$coche->getNumeroCadenasNieve()}<br><br>";
+$coche->acelerar(50);
+$camion->acelerar(30);
+$moto->acelerar(70);
 
-    echo "<strong>Camión:</strong><br>";
-    $camion->circula();
-    $camion->anadir_remolque(5);
-    echo "Longitud total del camión: {$camion->longitud} metros<br><br>";
+echo "Velocidad del coche: " . $coche->getVelocidad() . " km/h\n";
+echo "<br>";
+echo "Velocidad del camión: " . $camion->getVelocidad() . " km/h\n";
+echo "<br>";
+echo "Velocidad de la moto: " . $moto->getVelocidad() . " km/h\n";
 
-    echo "<strong>Moto:</strong><br>";
-    $moto->circula();
-    $moto->poner_gasolina(10);
-    echo "Nuevo peso de la moto: {$moto->getPeso()} kg<br>";
+$coche->frenar(20);
+$camion->frenar(10);
+$moto->frenar(30);
 
-
-} else {
-    echo "El archivo poovehiculos.php no se encuentra en la ruta especificada.";
-}
-
+echo "<br>";
+echo "Velocidad del coche tras frenar: " . $coche->getVelocidad() . " km/h\n";
+echo "<br>";
+echo "Velocidad del camión tras frenar: " . $camion->getVelocidad() . " km/h\n";
+echo "<br>";
+echo "Velocidad de la moto tras frenar: " . $moto->getVelocidad() . " km/h\n";
 ?>

@@ -12,6 +12,9 @@ class Vehiculo {
     public function circula() {
         echo "El vehículo está en movimiento.<br>";
     }
+    public function para() {
+        echo "El vehículo está parado.<br>";
+    }
 
     public function anadir_persona($peso_persona) {
         $this->peso += $peso_persona;
